@@ -5,4 +5,8 @@
     <string name="homeDescription">Descrizione Home</string>
     <string name="insertCity">Inserisci città</string>
 
+
+    <!-- DATI INTERNI -->
+    <string name="hintEditTextToolbar">Inserisci città</string>
+
 </resources>
