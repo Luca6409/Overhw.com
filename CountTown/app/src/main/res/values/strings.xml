@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CountTown</string>
+
+    <!-- HOME -->
+    <string name="homeDescription">Descrizione Home</string>
+    <string name="insertCity">Inserisci città</string>
+
+</resources>
