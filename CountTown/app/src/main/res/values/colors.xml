@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3f51b5</color>
-    <color name="colorPrimaryLight">#757de8</color>
-    <color name="colorPrimaryDark">#002984</color>
-    <color name="colorSecondary">#ff5722</color>
-    <color name="colorSecondaryLight">#ff8a50</color>
-    <color name="colorSecondaryDark">#c41c00</color>
-    <color name="colorAccent">#ff5722</color>
-    <color name="textColorPrimary">#ffffff</color>
+    <color name="colorPrimary">#2962FF</color>
+    <color name="colorPrimaryLight">#768FFF</color>
+    <color name="colorPrimaryDark">#0039CB</color>
+    <color name="colorSecondary">#FF5722</color>
+    <color name="colorSecondaryLight">#FF8A50</color>
+    <color name="colorSecondaryDark">#C41C00</color>
+    <color name="colorAccent">#FF5722</color>
+    <color name="textColorPrimary">#FFFFFF</color>
     <color name="textColorSecondary">#000000</color>
+    <color name="textColorHint">#B2B2B2</color>
 
 
 
     <!-- HOME -->
     <color name="grayText">#808080</color>
-    <color name="backgroundColor">#fcfcfc</color>
-    <color name="lightgray">#ededed</color>
-    <color name="deeppurple">#7c4dff</color>
-    <color name="yello">#ffb300</color>
-    <color name="green">#00bfa5</color>
+    <color name="backgroundColor">#FCFCFC</color>
+    <color name="lightgray">#EDEDED</color>
+    <color name="deeppurple">#7C4DFF</color>
+    <color name="yello">#FFB300</color>
+    <color name="green">#00BFA5</color>
 
 </resources>

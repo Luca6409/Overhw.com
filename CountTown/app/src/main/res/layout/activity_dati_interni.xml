@@ -11,10 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:theme="@style/ToolbarColoredWhiteArrow"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize">
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/dati_interni_edittext_citta"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,12 +26,218 @@
             android:hint="@string/hintEditTextToolbar"
             android:inputType="text|textAutoCorrect|textAutoComplete"
             android:textColor="@color/textColorPrimary"
+            android:textColorHint="@color/textColorHint"
             android:textSize="18sp"
             android:textStyle="bold" />
 
     </android.support.v7.widget.Toolbar>
 
+    <ScrollView
+        android:id="@+id/scrollview_interni"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar_dati_interni"
+        android:fillViewport="true">
 
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1"
+            android:layout_marginTop="3dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/nome_citta_interni"
+                    android:text="@string/nome"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/istat_interni"
+                    android:text="@string/codiceIstat"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/provincia_interni"
+                    android:text="@string/provincia"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/sigla_provincia_interni"
+                    android:text="@string/siglaProvincia"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/regione_interni"
+                    android:text="@string/regione"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/area_geo_interni"
+                    android:text="@string/areaGeo"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/pop_residente_interni"
+                    android:text="@string/popResidente"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/pop_straniera_interni"
+                    android:text="@string/popStraniera"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/densita_demo_interni"
+                    android:text="@string/densDemo"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/sup_kmq_interni"
+                    android:text="@string/supKmQ"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/altezza_centro_interni"
+                    android:text="@string/altezzaCentro"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/altezza_minima_interni"
+                    android:text="@string/altezzaMinima"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/altezza_massima_interni"
+                    android:text="@string/altezzaMassima"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/zona_altimetrica_interni"
+                    android:text="@string/zonaAltimetria"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tipo_comune_interni"
+                    android:text="@string/tipoComune"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/grado_urbanizzazione_interni"
+                    android:text="@string/gradoUrbanizzazione"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/indice_mintanita_interni"
+                    android:text="@string/indiceMontanita"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/zona_climatica_interni"
+                    android:text="@string/zonaClimatica"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/classe_comune_interni"
+                    android:text="@string/classeComune"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/latitudine_interni"
+                    android:text="@string/latitudine"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/longitudine_interni"
+                    android:text="@string/longitudine"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold" />
+            </TableRow>
+        </TableLayout>
+
+    </ScrollView>
 
 
 </RelativeLayout>

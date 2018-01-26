@@ -9,17 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home">
+        <activity android:name=".FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DatiInterni"
-            android:theme="@style/AppThemeNoActionBar"
-            android:parentActivityName=".Home">
+        <activity android:name=".Home">
         </activity>
+        <activity
+            android:name=".DatiInterni"
+            android:parentActivityName=".Home"
+            android:theme="@style/AppThemeNoActionBar">
+        </activity>
+
     </application>
 
 </manifest>

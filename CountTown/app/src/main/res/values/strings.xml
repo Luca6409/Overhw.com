@@ -8,5 +8,25 @@
 
     <!-- DATI INTERNI -->
     <string name="hintEditTextToolbar">Inserisci città</string>
-
+    <string name="nome">Nome città</string>
+    <string name="codiceIstat">Codice Istat</string>
+    <string name="provincia">Provincia</string>
+    <string name="siglaProvincia">Sigla Provincia</string>
+    <string name="regione">Regione</string>
+    <string name="areaGeo">Area geografica</string>
+    <string name="popResidente">Popolazione residente</string>
+    <string name="popStraniera">Popolazione straniera</string>
+    <string name="densDemo">Densità demografica</string>
+    <string name="supKmQ">Superficie Kmq</string>
+    <string name="altezzaCentro">Altezza centro</string>
+    <string name="altezzaMinima">Altezza minima</string>
+    <string name="altezzaMassima">Altezza massima</string>
+    <string name="zonaAltimetria">Zona altimetrica</string>
+    <string name="tipoComune">Tipo comune</string>
+    <string name="gradoUrbanizzazione">Grado urbanizzazione</string>
+    <string name="indiceMontanita">Indice montanità</string>
+    <string name="zonaClimatica">Zona climatica</string>
+    <string name="classeComune">Classe comune</string>
+    <string name="latitudine">Latitudine</string>
+    <string name="longitudine">Longitudine</string>
 </resources>

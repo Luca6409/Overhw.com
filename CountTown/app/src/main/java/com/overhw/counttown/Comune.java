@@ -1,11 +1,12 @@
 package com.overhw.counttown;
 
 /**
- * Created by LF on 22/01/2018.
+ * Created by LucaF on 22/01/2018.
  */
 
 public class Comune {
     private String nome;
+    private String istat;
     private String provincia;
     private String siglaProvincia;
     private String regione;
@@ -23,15 +24,38 @@ public class Comune {
     private String indiceMontanita;
     private String zonaClimatica;
     private String zonaSismica;
+    private String classeComune;
     private String latitudine;
     private String longitudine;
 
-    public Comune(){
-
+    public Comune(String[] details){
+        this.nome = details[0];
+        this.istat = details[1];
+        this.provincia = details[2];
+        this.siglaProvincia = details[3];
+        this.regione = details[4];
+        this.areaGeo = details[5];
+        this.popolazioneResidente = details[6];
+        this.popolazioneStraniera = details[7];
+        this.densitaDemografica = details[8];
+        this.superficieKmq = details[9];
+        this.altezzaCentro = details[10];
+        this.altezzaMinima = details[11];
+        this.altezzaMassima = details[12];
+        this.zonaAltimetrica = details[13];
+        this.tipoComune = details[14];
+        this.gradoUrbanizzazione = details[15];
+        this.indiceMontanita = details[16];
+        this.zonaClimatica = details[17];
+        this.zonaSismica = details[18];
+        this.classeComune = details[19];
+        this.latitudine = details[20];
+        this.longitudine = details[21];
     }
 
-    public Comune(String nome, String provincia, String siglaProvincia, String regione, String areaGeo, String popolazioneResidente, String popolazioneStraniera, String densitaDemografica, String superficieKmq, String altezzaCentro, String altezzaMinima, String altezzaMassima, String zonaAltimetrica, String tipoComune, String gradoUrbanizzazione, String indiceMontanita, String zonaClimatica, String zonaSismica, String latitudine, String longitudine) {
+    public Comune(String nome, String istat, String provincia, String siglaProvincia, String regione, String areaGeo, String popolazioneResidente, String popolazioneStraniera, String densitaDemografica, String superficieKmq, String altezzaCentro, String altezzaMinima, String altezzaMassima, String zonaAltimetrica, String tipoComune, String gradoUrbanizzazione, String indiceMontanita, String zonaClimatica, String zonaSismica, String classeComune, String latitudine, String longitudine) {
         this.nome = nome;
+        this.istat = istat;
         this.provincia = provincia;
         this.siglaProvincia = siglaProvincia;
         this.regione = regione;
@@ -49,10 +73,10 @@ public class Comune {
         this.indiceMontanita = indiceMontanita;
         this.zonaClimatica = zonaClimatica;
         this.zonaSismica = zonaSismica;
+        this.classeComune = classeComune;
         this.latitudine = latitudine;
         this.longitudine = longitudine;
     }
-
 
     public String getNome() {
         return nome;
@@ -212,5 +236,21 @@ public class Comune {
 
     public void setLongitudine(String longitudine) {
         this.longitudine = longitudine;
+    }
+
+    public String getIstat() {
+        return istat;
+    }
+
+    public void setIstat(String istat) {
+        this.istat = istat;
+    }
+
+    public String getClasseComune() {
+        return classeComune;
+    }
+
+    public void setClasseComune(String classeComune) {
+        this.classeComune = classeComune;
     }
 }
