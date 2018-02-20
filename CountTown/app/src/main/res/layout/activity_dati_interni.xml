@@ -4,240 +4,351 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.overhw.counttown.DatiInterni">
+    tools:context="com.overhw.counttown.DatiInterniActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_dati_interni"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:theme="@style/ToolbarColoredWhiteArrow"
         android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize">
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ToolbarColoredWhiteArrow"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
 
-        <AutoCompleteTextView
-            android:id="@+id/dati_interni_edittext_citta"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignBottom="@+id/toolbar_dati_interni"
-            android:layout_alignParentStart="true"
-            android:layout_centerHorizontal="true"
-            android:background="@android:color/transparent"
-            android:hint="@string/hintEditTextToolbar"
-            android:inputType="text|textAutoCorrect|textAutoComplete"
-            android:textColor="@color/textColorPrimary"
-            android:textColorHint="@color/textColorHint"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/interni_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="start"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_back_arrow"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <AutoCompleteTextView
+                android:id="@+id/dati_interni_edittext_citta"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_centerHorizontal="true"
+                android:background="@android:color/transparent"
+                android:fitsSystemWindows="true"
+                android:focusedByDefault="false"
+                android:gravity="center"
+                android:hint="@string/hintEditTextToolbar"
+                android:inputType="text|textAutoCorrect|textAutoComplete"
+                android:textColor="@color/textColorPrimary"
+                android:textColorHint="@color/textColorHint"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/interni_search_button"
+                app:layout_constraintStart_toEndOf="@+id/interni_back_button"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/interni_search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="end"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_search_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.Toolbar>
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/toolbar_dati_interni"
+        android:name="com.google.android.gms.maps.MapFragment"/>
 
     <ScrollView
         android:id="@+id/scrollview_interni"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar_dati_interni"
-        android:fillViewport="true">
+        android:layout_below="@+id/mapFragment"
+        android:fillViewport="true" >
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:stretchColumns="1"
-            android:layout_marginTop="3dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TableRow>
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp" >
 
-                <TextView
-                    android:id="@+id/nome_citta_interni"
-                    android:text="@string/nome"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold"/>
-            </TableRow>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp">
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/nome_citta_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="8dp"
+                        android:text="@string/nome"
+                        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <TextView
-                    android:id="@+id/istat_interni"
-                    android:text="@string/codiceIstat"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorAccent"/>
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/istat_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/codiceIstat"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/provincia_interni"
-                    android:text="@string/provincia"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                    <TextView
+                        android:id="@+id/provincia_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/provincia"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/sigla_provincia_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/siglaProvincia"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/sigla_provincia_interni"
-                    android:text="@string/siglaProvincia"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                    <TextView
+                        android:id="@+id/regione_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/regione"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TableRow>
 
-                <TextView
-                    android:id="@+id/regione_interni"
-                    android:text="@string/regione"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                    <TextView
+                        android:id="@+id/area_geo_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/areaGeo"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TableRow>
-                <TextView
-                    android:id="@+id/area_geo_interni"
-                    android:text="@string/areaGeo"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/sup_kmq_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/supKmQ"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/pop_residente_interni"
-                    android:text="@string/popResidente"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                    <TextView
+                        android:id="@+id/tipo_comune_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tipoComune"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TableRow>
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/pop_straniera_interni"
-                    android:text="@string/popStraniera"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+            </android.support.v7.widget.CardView>
 
-            <TableRow>
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                >
 
-                <TextView
-                    android:id="@+id/densita_demo_interni"
-                    android:text="@string/densDemo"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp">
 
-            <TableRow>
 
-                <TextView
-                    android:id="@+id/sup_kmq_interni"
-                    android:text="@string/supKmQ"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                    <TextView
+                        android:id="@+id/pop_residente_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/popResidente"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TableRow>
 
-                <TextView
-                    android:id="@+id/altezza_centro_interni"
-                    android:text="@string/altezzaCentro"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                    <TextView
+                        android:id="@+id/pop_straniera_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/popStraniera"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TableRow>
 
-                <TextView
-                    android:id="@+id/altezza_minima_interni"
-                    android:text="@string/altezzaMinima"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                    <TextView
+                        android:id="@+id/densita_demo_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/densDemo"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/grado_urbanizzazione_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gradoUrbanizzazione"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/altezza_massima_interni"
-                    android:text="@string/altezzaMassima"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                </LinearLayout>
 
-            <TableRow>
 
-                <TextView
-                    android:id="@+id/zona_altimetrica_interni"
-                    android:text="@string/zonaAltimetria"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+            </android.support.v7.widget.CardView>
 
-            <TableRow>
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                >
 
-                <TextView
-                    android:id="@+id/tipo_comune_interni"
-                    android:text="@string/tipoComune"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp">
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/altezza_centro_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/altezzaCentro"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/grado_urbanizzazione_interni"
-                    android:text="@string/gradoUrbanizzazione"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/altezza_minima_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/altezzaMinima"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/indice_mintanita_interni"
-                    android:text="@string/indiceMontanita"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/altezza_massima_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/altezzaMassima"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/zona_climatica_interni"
-                    android:text="@string/zonaClimatica"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/zona_altimetrica_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zonaAltimetria"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/classe_comune_interni"
-                    android:text="@string/classeComune"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/zona_sismica_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zonaSismica"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/latitudine_interni"
-                    android:text="@string/latitudine"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
 
-            <TableRow>
+                    <TextView
+                        android:id="@+id/indice_mintanita_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/indiceMontanita"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/longitudine_interni"
-                    android:text="@string/longitudine"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold" />
-            </TableRow>
-        </TableLayout>
+
+                    <TextView
+                        android:id="@+id/zona_climatica_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/zonaClimatica"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+                    <TextView
+                        android:id="@+id/classe_comune_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/classeComune"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardview_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp">
+
+
+                    <TextView
+                        android:id="@+id/latitudine_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/latitudine"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+                    <TextView
+                        android:id="@+id/longitudine_interni"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/longitudine"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
 
     </ScrollView>
-
 
 </RelativeLayout>

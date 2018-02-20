@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.overhw.counttown.Home"
+    tools:context="com.overhw.counttown.HomeActivity"
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@color/backgroundColor">
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/insertCity"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/homeDescription"
         app:layout_constraintStart_toStartOf="@+id/homeDescription"
         app:layout_constraintTop_toBottomOf="@+id/homeDescription" />
@@ -38,6 +38,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Dati interni" />
+
+    <Button
+        android:id="@+id/appalti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Appalti" />
 
 
 </LinearLayout>

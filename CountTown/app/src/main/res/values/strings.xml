@@ -22,6 +22,7 @@
     <string name="altezzaMinima">Altezza minima</string>
     <string name="altezzaMassima">Altezza massima</string>
     <string name="zonaAltimetria">Zona altimetrica</string>
+    <string name="zonaSismica">Zona sismica</string>
     <string name="tipoComune">Tipo comune</string>
     <string name="gradoUrbanizzazione">Grado urbanizzazione</string>
     <string name="indiceMontanita">Indice montanità</string>
@@ -29,4 +30,5 @@
     <string name="classeComune">Classe comune</string>
     <string name="latitudine">Latitudine</string>
     <string name="longitudine">Longitudine</string>
+    <string name="title_activity_maps2">Map</string>
 </resources>

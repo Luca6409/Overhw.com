@@ -19,4 +19,5 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="36sp"
         android:textStyle="bold" />
+
 </RelativeLayout>
