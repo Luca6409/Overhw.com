@@ -47,10 +47,12 @@ public class Appalto {
     private String fpNote;
     private String url;
 
-    public Appalto(String idGara,String oggetto, String luogoEsecuzione){
+    public Appalto(String tipoIntervento, String idGara, String luogoEsecuzione, String denominazioneStazioneAppaltante, String dataPubbBandoScp){
+        this.tipoIntervento = tipoIntervento;
         this.idGara = idGara;
-        this.oggetto = oggetto;
         this.luogoEsecuzione = luogoEsecuzione;
+        this.denominazioneStazioneAppaltante = denominazioneStazioneAppaltante;
+        this.dataPubbBandoScp = dataPubbBandoScp;
     }
 
     public Appalto(String[] datiAppalto){

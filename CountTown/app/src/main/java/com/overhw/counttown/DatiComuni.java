@@ -12,4 +12,6 @@ public class DatiComuni extends AppCompatActivity{
     protected static ArrayList<String> nomi_citta = new ArrayList<>();
 
     protected static Comune comune_utente;
+
+    protected static ArrayList<Appalto> appalti = new ArrayList<>();
 }

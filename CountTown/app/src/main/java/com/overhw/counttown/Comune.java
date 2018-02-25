@@ -29,28 +29,30 @@ public class Comune {
     private String longitudine;
 
     public Comune(String[] details){
-        this.nome = details[0];
-        this.istat = details[1];
-        this.provincia = details[2];
-        this.siglaProvincia = details[3];
-        this.regione = details[4];
-        this.areaGeo = details[5];
-        this.popolazioneResidente = details[6];
-        this.popolazioneStraniera = details[7];
-        this.densitaDemografica = details[8];
-        this.superficieKmq = details[9];
-        this.altezzaCentro = details[10];
-        this.altezzaMinima = details[11];
-        this.altezzaMassima = details[12];
-        this.zonaAltimetrica = details[13];
-        this.tipoComune = details[14];
-        this.gradoUrbanizzazione = details[15];
-        this.indiceMontanita = details[16];
-        this.zonaClimatica = details[17];
-        this.zonaSismica = details[18];
-        this.classeComune = details[19];
-        this.latitudine = details[20];
-        this.longitudine = details[21];
+        if(details.length <= 21 && details.length>0) {
+            this.nome = details[0];
+            this.istat = details[1];
+            this.provincia = details[2];
+            this.siglaProvincia = details[3];
+            this.regione = details[4];
+            this.areaGeo = details[5];
+            this.popolazioneResidente = details[6];
+            this.popolazioneStraniera = details[7];
+            this.densitaDemografica = details[8];
+            this.superficieKmq = details[9];
+            this.altezzaCentro = details[10];
+            this.altezzaMinima = details[11];
+            this.altezzaMassima = details[12];
+            this.zonaAltimetrica = details[13];
+            this.tipoComune = details[14];
+            this.gradoUrbanizzazione = details[15];
+            this.indiceMontanita = details[16];
+            this.zonaClimatica = details[17];
+            this.zonaSismica = details[18];
+            this.classeComune = details[19];
+            this.latitudine = details[20];
+            this.longitudine = details[21];
+        }
     }
 
     public Comune(String nome, String istat, String provincia, String siglaProvincia, String regione, String areaGeo, String popolazioneResidente, String popolazioneStraniera, String densitaDemografica, String superficieKmq, String altezzaCentro, String altezzaMinima, String altezzaMassima, String zonaAltimetrica, String tipoComune, String gradoUrbanizzazione, String indiceMontanita, String zonaClimatica, String zonaSismica, String classeComune, String latitudine, String longitudine) {
