@@ -9,10 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by Luca Fabris on 20/02/2018.
@@ -34,6 +37,13 @@ public class ListaAppaltiActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_appalti);
 
         final InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        recyclerView = findViewById(R.id.lista_appalti_recycler);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        adapter = new RecyclerViewAdapter(new ArrayList<Appalto>(), this);
+        recyclerView.setAdapter(adapter);
 
         toolbar = findViewById(R.id.lista_appalti_toolbar);
         setSupportActionBar(toolbar);
@@ -78,28 +88,32 @@ public class ListaAppaltiActivity extends AppCompatActivity {
         });
 
         initData();
-        recyclerView = findViewById(R.id.lista_appalti_recycler);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        adapter = new RecyclerViewAdapter(DatiComuni.appalti, this);
-        recyclerView.setAdapter(adapter);
     }
 
     private void initData() {
-        /*DatiComuni.appalti.add(new Appalto("Manutenzione ""1", "Oggetto1", "Luogo1"));
-        DatiComuni.appalti.add(new Appalto("2", "Oggetto2", "Luogo2"));
-        DatiComuni.appalti.add(new Appalto("3", "Oggetto3", "Luogo3"));
-        DatiComuni.appalti.add(new Appalto("4", "Oggetto4", "Luogo4"));
-        DatiComuni.appalti.add(new Appalto("5", "Oggetto5", "Luogo5"));
-        DatiComuni.appalti.add(new Appalto("6", "Oggetto6", "Luogo6"));
-        DatiComuni.appalti.add(new Appalto("7", "Oggetto7", "Luogo7"));
-        DatiComuni.appalti.add(new Appalto("8", "Oggetto8", "Luogo8"));*/
-
-
     }
 
     private void searchCityContracts(String s) {
         Toast.makeText(this, "Searching City", Toast.LENGTH_SHORT).show();
+        ArrayList<Appalto> appaltiCity = new ArrayList<>();
+        int i = 0;
+        while(i < DatiComuni.appalti.size()){
+            if(DatiComuni.appalti.get(i).getLuogoEsecuzione() != null){
+                if(DatiComuni.appalti.get(i).getLuogoEsecuzione().contains(s)){
+                    appaltiCity.add(DatiComuni.appalti.get(i));
+                }
+            }
+            i++;
+        }
+
+        System.out.println("Per il comune di " + s + " sono stati trovati " + appaltiCity.size() + " appalti");
+
+        if(appaltiCity.size() > 0){
+            RecyclerViewAdapter newAdapter = new RecyclerViewAdapter(appaltiCity, this);
+            recyclerView.swapAdapter(newAdapter, true);
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "Nessun appalto trovato", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -71,11 +71,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        holder.tipoIntervento.setText(listAppalti.get(position).getTipoIntervento());
+        //holder.tipoIntervento.setText(listAppalti.get(position).getTipoIntervento());
         holder.idGara.setText(listAppalti.get(position).getIdGara());
         holder.dataPubblicazione.setText(listAppalti.get(position).getDataPubbBandoScp());
         holder.luogo.setText(listAppalti.get(position).getLuogoEsecuzione());
-        holder.denomStazApp.setText(listAppalti.get(position).getDenominazioneStazioneAppaltante());
+        //holder.denomStazApp.setText(listAppalti.get(position).getDenominazioneStazioneAppaltante());
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override

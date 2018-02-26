@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.ArrayList;
 
 /**
- * Created by LF on 26/01/2018.
+ * Created by Luca Fabris on 26/01/2018.
  */
 
 public class DatiComuni extends AppCompatActivity{
