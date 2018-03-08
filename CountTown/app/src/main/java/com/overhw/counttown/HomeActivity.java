@@ -10,7 +10,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private Button datiInterni;
     private Button appalti;
-
+    private Button benchmarkComuni;
+    private Button info;
     private CsvUtil csvUtil;
 
     @Override
@@ -39,6 +40,28 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(appalti);
             }
         });
+
+
+        benchmarkComuni = (Button) findViewById(R.id.bottone_benchmark_comuni);
+
+        benchmarkComuni.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent benchmarkMultiploPage = new Intent(HomeActivity.this,Benchmark.class);
+                startActivity(benchmarkMultiploPage);
+            }
+        });
+
+        info = (Button) findViewById(R.id.bottone_info);
+
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent infopage = new Intent(HomeActivity.this,Info.class);
+                startActivity(infopage);
+            }
+        });
+
 
         if(DatiComuni.dettagli_citta.isEmpty()){
             csvUtil.downloadTownsDetails();
