@@ -30,7 +30,7 @@ public class Comune {
 
     /** controllo se la lunghezza di details è compresa tra 1 e 22 altrimenti non aggiungo nulla */
     public Comune(String[] details){
-        if(details.length <= 22 && details.length>0) {
+        if(details.length < 23 && details.length > 0) {
             this.nome = details[0];
             this.istat = details[1];
             this.provincia = details[2];

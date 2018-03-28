@@ -66,8 +66,8 @@ public class HomeActivity extends AppCompatActivity {
         if(DatiComuni.dettagli_citta.isEmpty()){
             csvUtil.downloadTownsDetails();
         }
-        if(DatiComuni.appalti.isEmpty()){
+        /*if(DatiComuni.appalti.isEmpty()){
             csvUtil.downloadBandi();
-        }
+        }*/
     }
 }

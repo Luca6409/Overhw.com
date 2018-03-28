@@ -1,9 +1,12 @@
 package com.overhw.counttown;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
@@ -14,13 +17,14 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.widget.Toast;
 
 public class FirstActivity extends AppCompatActivity {
 
-    private final String TAG = "FirstActivityRequest";
     private static int MY_PERMISSIONS_REQUEST_WRITE = 1;
 
     private static boolean permissionWrite = false;
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -35,26 +39,39 @@ public class FirstActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        Thread myThread = new Thread(){
-            @Override
-            public void run() {
-                try{
-                    sleep(3000);
-                    if(permissionWrite) {
-                        Intent home = new Intent(FirstActivity.this, HomeActivity.class);
-                        startActivity(home);
-                        finish();
+        /* check internet connection */
+        ConnectivityManager cm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+        if (isConnected) {
+
+            Thread myThread = new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        sleep(2500);
+
+                        /* if we ahve permission to save data and the device is connected start new activity */
+                        /* TODO: CONTROLLARE SE NECESSARIO PERMESSO PER LA SCRITTURA */
+                        if (permissionWrite) {
+                            Intent home = new Intent(FirstActivity.this, HomeActivity.class);
+                            startActivity(home);
+                            finish();
+                        } else {
+                            finish();
+                            System.exit(0);
+                        }
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
-                    else{
-                        finish();
-                        System.exit(0);
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
-            }
-        };
-        myThread.start();
+            };
+            myThread.start();
+        }
+        else{
+            dialogConnection();
+        }
     }
 
     /* FUNZIONI PER RICHIEDERE IL PERMESSO PER L'ARCHIVIAZIONE DEI DATI */
@@ -63,7 +80,7 @@ public class FirstActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(FirstActivity.this, permissions, MY_PERMISSIONS_REQUEST_WRITE);
     }
 
-    // NUOVA RICHIESTA SALVATAGGIO FILE
+    /* NUOVA RICHIESTA SALVATAGGIO FILE */
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
@@ -133,5 +150,23 @@ public class FirstActivity extends AppCompatActivity {
         myAppSettings.addCategory(Intent.CATEGORY_DEFAULT);
         myAppSettings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(myAppSettings);
+    }
+
+
+    private void dialogConnection(){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(FirstActivity.this, R.style.Theme_AppCompat_DayNight_Dialog_Alert);
+        dialog.setTitle("Attenzione");
+        dialog.setCancelable(false);
+        dialog.setIcon(R.drawable.not_connection);
+        dialog.setMessage(Html.fromHtml("Connessione lenta o assente.\nControlla la connessione e riprova."));
+        dialog.setNegativeButton("Chiudi", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                finish();
+                System.exit(0);
+            }
+        });
+        dialog.show();
     }
 }
