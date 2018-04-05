@@ -40,7 +40,7 @@ public class CsvUtil {
 
     public void downloadTownsDetails(){
         if(checkInternetConnection()){
-            new DetailsEcho().execute("http://overhw.com/counttown/scripts/towns_details.php");
+            new DetailsEcho().execute("https://overhw.com/counttown/scripts/towns_details.php");
         }
         else{
             Toast.makeText(context, "Nessuna connessione attiva", Toast.LENGTH_SHORT).show();
@@ -64,7 +64,7 @@ public class CsvUtil {
                 e.printStackTrace();
             }
         }else{
-            new DownloadBandiURL().execute("http://overhw.com/counttown/scpbandi2.csv");
+            new DownloadBandiURL().execute("https://overhw.com/counttown/scpbandi2.csv");
         }
     }
 
