@@ -2,7 +2,6 @@ package com.overhw.counttown;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button info;
     private AutoCompleteTextView citta;
     private ImageButton salvaCitta;
-    private CsvUtil csvUtil;
+    private Util csvUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
 
         final InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 
-        csvUtil = new CsvUtil(this);
+        csvUtil = new Util(this);
 
         datiInterni = findViewById(R.id.dati_interni);
 
@@ -87,8 +86,9 @@ public class HomeActivity extends AppCompatActivity {
                             String newcity = citta.getText().toString().substring(0,1).toUpperCase() + citta.getText().toString().substring(1,citta.getText().toString().length());
                             System.out.println(newcity);
                             citta.setText(newcity);
-                            int position = DatiComuni.nomi_citta.indexOf(newcity);
-                            DatiComuni.comune_utente = DatiComuni.dettagli_citta.get(position);
+                            String[] tokens = new String[22];
+                            tokens[0] = newcity;
+                            DatiComuni.dettagli_comune = new Comune(tokens);
                             Snackbar.make(view, "Comune salvato con successo", Snackbar.LENGTH_SHORT).show();
                             return true;
                         default:
@@ -104,18 +104,20 @@ public class HomeActivity extends AppCompatActivity {
         salvaCitta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int position = DatiComuni.nomi_citta.indexOf(citta.getText().toString());
-                DatiComuni.comune_utente = DatiComuni.dettagli_citta.get(position);
+                String newcity = citta.getText().toString().substring(0,1).toUpperCase() + citta.getText().toString().substring(1,citta.getText().toString().length());
+                System.out.println(newcity);
+                citta.setText(newcity);
+                String[] tokens = new String[22];
+                tokens[0] = newcity;
+                DatiComuni.dettagli_comune = new Comune(tokens);
                 Snackbar.make(view, "Comune salvato con successo", Snackbar.LENGTH_SHORT).show();
             }
         });
 
 
-        if(DatiComuni.dettagli_citta.isEmpty()){
-            csvUtil.downloadTownsDetails();
-        }
-        if(DatiComuni.appalti.isEmpty()){
-            csvUtil.downloadBandi();
+        /* Carica solo i nomi dei Comuni per la lista di immissione nome Comune */
+        if(DatiComuni.nomi_citta.isEmpty()){
+            csvUtil.downloadTownsNames();
         }
     }
 }

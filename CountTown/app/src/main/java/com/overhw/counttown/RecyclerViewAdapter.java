@@ -3,6 +3,7 @@ package com.overhw.counttown;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,17 +21,15 @@ class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnLongC
     public TextView tipoIntervento;
     public TextView idGara;
     public TextView dataPubblicazione;
-    public TextView luogo;
     public TextView denomStazApp;
 
     private ItemClickListener itemClickListener;
 
     public RecyclerViewHolder(View itemView) {
         super(itemView);
-        tipoIntervento = itemView.findViewById(R.id.item_appalto_tipo_intervento);
         idGara = itemView.findViewById(R.id.item_appalto_id_gara);
         dataPubblicazione = itemView.findViewById(R.id.item_appalto_data_pubb);
-        luogo = itemView.findViewById(R.id.item_appalto_luogo);
+        tipoIntervento = itemView.findViewById(R.id.item_appalto_tipo_intervento);
         denomStazApp = itemView.findViewById(R.id.item_appalto_denom_staz_appaltante);
 
         itemView.setOnClickListener(this);
@@ -71,11 +70,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        //holder.tipoIntervento.setText(listAppalti.get(position).getTipoIntervento());
-        holder.idGara.setText(listAppalti.get(position).getIdGara());
-        holder.dataPubblicazione.setText(listAppalti.get(position).getDataPubbBandoScp());
-        holder.luogo.setText(listAppalti.get(position).getLuogoEsecuzione());
-        //holder.denomStazApp.setText(listAppalti.get(position).getDenominazioneStazioneAppaltante());
+        holder.tipoIntervento.setText(Html.fromHtml("<b>Tipo bando: </b>" + listAppalti.get(position).getTipoBando()));
+        holder.idGara.setText(Html.fromHtml("<b>Id gara: </b>" + listAppalti.get(position).getIdGara()));
+        holder.dataPubblicazione.setText(Html.fromHtml("<b>Data pubblicazione bando: </b>" + listAppalti.get(position).getDataPubbBandoScp()));
+        holder.denomStazApp.setText(Html.fromHtml("<b>Denominazione stazione appaltante: </b>" + listAppalti.get(position).getDenominazioneStazioneAppaltante()));
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
@@ -92,7 +90,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
                 }
             }
         });
-
     }
 
     @Override

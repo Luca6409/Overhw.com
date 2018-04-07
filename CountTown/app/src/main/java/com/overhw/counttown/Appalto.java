@@ -56,6 +56,7 @@ public class Appalto {
     }
 
     public Appalto(String[] datiAppalto){
+        if(datiAppalto.length == 41) {
             this.idGara = datiAppalto[0];
             this.nrLotto = datiAppalto[1];
             this.codiceFiscaleStazioneAppaltante = datiAppalto[2];
@@ -97,6 +98,7 @@ public class Appalto {
             this.fpDurataConces = datiAppalto[38];
             this.fpNote = datiAppalto[39];
             this.url = datiAppalto[40];
+        }
     }
 
     public String getIdGara() {

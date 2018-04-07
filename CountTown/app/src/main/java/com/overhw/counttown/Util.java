@@ -27,30 +27,20 @@ import java.util.ArrayList;
  * Created by Luca Fabris on 26/02/2018.
  */
 
-public class CsvUtil {
+public class Util {
 
     public static final int CONNECTION_TIMEOUT = 10000;
     public static final int READ_TIMEOUT = 15000;
 
     private Context context;
 
-    public CsvUtil(Context context){
+    public Util(Context context){
         this.context = context;
     }
 
-    public void downloadTownsDetails(){
+    public void downloadTownsNames(){
         if(checkInternetConnection()){
             new DetailsEcho().execute("https://overhw.com/counttown/scripts/towns_details.php");
-        }
-        else{
-            Toast.makeText(context, "Nessuna connessione attiva", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    public void downloadBandi(){
-        if(checkInternetConnection()){
-            new DetailsEchoAppalti().execute("https://overhw.com/counttown/scripts/appalti_details.php");
         }
         else{
             Toast.makeText(context, "Nessuna connessione attiva", Toast.LENGTH_SHORT).show();
@@ -132,28 +122,23 @@ public class CsvUtil {
 
         @Override
         protected void onPostExecute(String result) {
-
-            ArrayList<Comune> towns = DatiComuni.dettagli_citta;
             ArrayList<String> names = DatiComuni.nomi_citta;
-
-            towns.clear();
             names.clear();
 
             if(!result.equalsIgnoreCase("unsuccessful")) {
 
                 String[] comuni = result.split(";");
                 int i = 0;
+                Comune common;
                 while (i < comuni.length) {
                     String[] tokens = comuni[i].split(":");
                     System.out.println("NUM POSITION " + i + " : " + tokens.length);
-                    Comune common = new Comune(tokens);
+                    common = new Comune(tokens);
                     System.out.println("ADD: " + common.getNome());
-                    towns.add(common);
                     names.add(common.getNome());
                     i++;
                 }
             }
-
             pDialog.dismiss();
         }
     }
