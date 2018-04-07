@@ -144,7 +144,7 @@ public class DatiInterniActivity extends AppCompatActivity implements OnMapReady
 
         /* position = -1 : town not found */
         if(position < 0){
-            Toast.makeText(getApplicationContext(), "Town not found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Comune non trovato", Toast.LENGTH_SHORT).show();
         }
         else {
             DatiComuni.comune_utente = DatiComuni.dettagli_citta.get(position);
@@ -200,7 +200,7 @@ public class DatiInterniActivity extends AppCompatActivity implements OnMapReady
             Dialog dialog = api.getErrorDialog(this, isAvailable, 0);
             dialog.show();
         } else{
-            Toast.makeText(this, "Can't connect to play services", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Impossibile connettersi a Google Play Services", Toast.LENGTH_LONG).show();
         }
         return false;
     }
@@ -214,13 +214,6 @@ public class DatiInterniActivity extends AppCompatActivity implements OnMapReady
             goToLocation(lat,lng, 12);
         }
 
-    }
-
-    private void goToLocation(double lat, double lng) {
-        LatLng ll = new LatLng(lat, lng);
-        googleMap.addMarker(new MarkerOptions().position(ll).title(DatiComuni.comune_utente.getNome()));
-        CameraUpdate update = CameraUpdateFactory.newLatLng(ll);
-        googleMap.moveCamera(update);
     }
 
     private void goToLocation(double lat, double lng, float zoom) {

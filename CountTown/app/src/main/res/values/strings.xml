@@ -3,11 +3,11 @@
 
     <!-- HOME -->
     <string name="homeDescription">Descrizione Home</string>
-    <string name="insertCity">Inserisci città</string>
+    <string name="insertCity">Inserisci nome comune</string>
 
 
     <!-- DATI INTERNI -->
-    <string name="hintEditTextToolbar">Inserisci città</string>
+    <string name="hintEditTextToolbar">Inserisci nome comune</string>
     <string name="nome">Nome città</string>
     <string name="codiceIstat">Codice Istat</string>
     <string name="provincia">Provincia</string>

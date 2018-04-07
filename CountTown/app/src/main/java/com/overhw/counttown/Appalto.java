@@ -56,10 +56,6 @@ public class Appalto {
     }
 
     public Appalto(String[] datiAppalto){
-        if(datiAppalto.length<40){
-            return;
-        }
-        else{
             this.idGara = datiAppalto[0];
             this.nrLotto = datiAppalto[1];
             this.codiceFiscaleStazioneAppaltante = datiAppalto[2];
@@ -95,13 +91,12 @@ public class Appalto {
             this.terminePresDomOff = datiAppalto[32];
             this.numGioTermEsec = datiAppalto[33];
             this.fpDirPrelaz = datiAppalto[34];
-            this. fpModifProgPrel = datiAppalto[35];
+            this.fpModifProgPrel = datiAppalto[35];
             this.fpAccettModProPrel = datiAppalto[36];
             this.fpObblCostSocProg = datiAppalto[37];
             this.fpDurataConces = datiAppalto[38];
             this.fpNote = datiAppalto[39];
             this.url = datiAppalto[40];
-        }
     }
 
     public String getIdGara() {

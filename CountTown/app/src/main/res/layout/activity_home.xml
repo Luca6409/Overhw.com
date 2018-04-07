@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -17,22 +18,49 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/citta"
+        android:layout_above="@+id/linearCitta"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:src="@drawable/logo1" />
 
-    <AutoCompleteTextView
-        android:id="@+id/citta"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/linearCitta"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="Inserisci il comune..."
-        android:textStyle="italic"
-        android:layout_above="@+id/dati_interni"
-        android:textSize="20dp" />
+        android:layout_above="@+id/dati_interni">
+
+        <AutoCompleteTextView
+            android:id="@+id/citta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:hint="@string/hintEditTextToolbar"
+            android:inputType="text|textAutoCorrect|textAutoComplete"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/salvaCitta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/salvaCitta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="5dp"/>
+    </android.support.constraint.ConstraintLayout>
 
     <Button
         android:id="@+id/dati_interni"
@@ -106,6 +134,4 @@
         android:textStyle="bold"
         android:background="@android:color/holo_blue_dark"
         android:textAlignment="center" />
-
-    />
 </RelativeLayout>
