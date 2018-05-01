@@ -85,6 +85,14 @@ public class Comune {
         return nome;
     }
 
+    /*public boolean isNome() { if(this.nome !=null) {
+                                return true;
+                              }
+                              else {
+                                return false;
+                              }
+                            }*/
+
     public void setNome(String nome) {
         this.nome = nome;
     }

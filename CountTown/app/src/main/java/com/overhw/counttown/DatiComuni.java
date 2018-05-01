@@ -11,4 +11,10 @@ public class DatiComuni extends AppCompatActivity{
     protected static Comune dettagli_comune = null;
     protected static ArrayList<String> nomi_citta = new ArrayList<>();
     protected static ArrayList<Appalto> appalti = new ArrayList<>();
+
+
+  public static String getNomeAggiornato(){
+      return dettagli_comune.getNome();
+
+  }
 }

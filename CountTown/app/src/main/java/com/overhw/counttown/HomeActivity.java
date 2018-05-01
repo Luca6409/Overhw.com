@@ -58,8 +58,8 @@ public class HomeActivity extends AppCompatActivity {
         benchmarkComuni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent benchmarkMultiploPage = new Intent(HomeActivity.this,Benchmark.class);
-                startActivity(benchmarkMultiploPage);
+                Intent benchmark= new Intent(HomeActivity.this,BenchmarkActivity.class);
+                startActivity(benchmark);
             }
         });
 

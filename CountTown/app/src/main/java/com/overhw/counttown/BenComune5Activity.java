@@ -3,9 +3,9 @@ package com.overhw.counttown;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -25,12 +25,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-/**
- * Created by Luca Fabris on 20/02/2018.
- */
-
 public class
-ListaAppaltiActivity extends AppCompatActivity {
+BenComune5Activity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private ImageButton back, search;
@@ -73,7 +69,7 @@ ListaAppaltiActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imm.hideSoftInputFromWindow(citta.getWindowToken(), 0);
-                new DetailsEchoAppalti().execute("https://overhw.com/counttown/scripts/appalti_details_anno.php?ncomune=" + citta.getText().toString() + "&anno=" + spinner.getSelectedItem().toString());
+                new DetailsEchoAppalti().execute("https://overhw.com/counttown/scripts/appalti_details_anno.php?ncomune=" + BenchmarkActivity.benComune5 + "&anno=" + spinner.getSelectedItem().toString());
             }
         });
 
@@ -87,7 +83,7 @@ ListaAppaltiActivity extends AppCompatActivity {
                     switch(i){
                         case KeyEvent.KEYCODE_ENTER:
                             imm.hideSoftInputFromWindow(citta.getWindowToken(), 0);
-                            new DetailsEchoAppalti().execute("https://overhw.com/counttown/scripts/appalti_details_anno.php?ncomune=" + citta.getText().toString() + "&anno=" + spinner.getSelectedItem().toString());
+                            new DetailsEchoAppalti().execute("https://overhw.com/counttown/scripts/appalti_details_anno.php?ncomune=" + BenchmarkActivity.benComune5 + "&anno=" + spinner.getSelectedItem().toString());
                             return true;
                         default:
                             break;
@@ -107,7 +103,7 @@ ListaAppaltiActivity extends AppCompatActivity {
 
     private void initData() {
         if(DatiComuni.dettagli_comune != null){
-            citta.setText(DatiComuni.dettagli_comune.getNome());
+            citta.setText(BenchmarkActivity.benComune5);
         }
     }
 
@@ -124,9 +120,6 @@ ListaAppaltiActivity extends AppCompatActivity {
     }
 
 
-
-
-
     class DetailsEchoAppalti extends AsyncTask<String, Integer, String> {
         ProgressDialog pDialog;
         HttpURLConnection conn;
@@ -135,7 +128,7 @@ ListaAppaltiActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute(){
             super.onPreExecute();
-            pDialog = new ProgressDialog(ListaAppaltiActivity.this);
+            pDialog = new ProgressDialog(BenComune5Activity.this);
             pDialog.setTitle("Caricamento appalti...");
             pDialog.setMessage("\tAttendere...");
             pDialog.setIndeterminate(false);

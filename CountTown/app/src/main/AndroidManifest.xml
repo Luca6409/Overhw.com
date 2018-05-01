@@ -39,6 +39,30 @@
             android:name=".DettagliAppaltoActivity"
             android:theme="@style/AppThemeNoActionBar"/>
 
+        <activity
+            android:name=".BenchmarkActivity"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name=".BenComune1Activity"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name=".BenComune2Activity"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name=".BenComune3Activity"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name=".BenComune4Activity"
+            android:theme="@style/AppThemeNoActionBar"/>
+
+        <activity
+            android:name=".BenComune5Activity"
+            android:theme="@style/AppThemeNoActionBar"/>
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyBzfU7noR7RsH10-SZ34eOT1wYGgkZNohg" />

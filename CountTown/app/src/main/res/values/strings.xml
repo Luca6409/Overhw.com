@@ -31,4 +31,7 @@
     <string name="latitudine">Latitudine</string>
     <string name="longitudine">Longitudine</string>
     <string name="title_activity_maps2">Map</string>
+    <string name="comune_1">Comune 1</string>
+    <string name="comune_2">Comune 2</string>
+    <string name="benchmark_multiplo_sul_comune_di">Benchmark multiplo sul comune di :</string>
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.overhw.counttown.ListaAppaltiActivity">
+    tools:context="com.overhw.counttown.BenComune1Activity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/lista_appalti_toolbar"
@@ -30,28 +30,6 @@
                 android:src="@drawable/ic_back_arrow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <AutoCompleteTextView
-                android:id="@+id/lista_appalti_edittext_citta"
-                android:layout_width="0dp"
-                android:layout_height="34dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerHorizontal="true"
-                android:background="@android:color/transparent"
-                android:fitsSystemWindows="true"
-                android:focusedByDefault="false"
-                android:gravity="center"
-                android:hint="@string/hintEditTextToolbar"
-                android:inputType="text|textAutoCorrect|textAutoComplete"
-                android:paddingTop="8dp"
-                android:textColor="@color/textColorPrimary"
-                android:textColorHint="@color/textColorHint"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toTopOf="@+id/spinner_lista_appalti"
-                app:layout_constraintEnd_toStartOf="@+id/lista_appalti_search_button"
-                app:layout_constraintStart_toEndOf="@+id/lista_appalti_back_button"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Spinner
